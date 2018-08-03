@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  /* border: 0; */
+  margin: 0;
+}
+
+body {
+  padding-top: 50px;
+}
+
+form, div {
+  border: 1px solid lightgrey;
+}
+
+.camp-results {
+  margin: 30px;
+}
+
+label, input {
+  display: block;
+}
+
+button {
+    margin: 10px;
+}
+
+
+  
