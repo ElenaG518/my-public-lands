@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Search for National Parks by State</title>
+        <link href="index.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+      <header role="banner">
+        <h1>Search National Parks by State</h1>
+      </header>  
+      <main role="main">
+        <form action="#" class="js-search-form">
+          <!-- <label>Search by the name of National Park:
+            <input type="text" id="js-park-query" aria-labelledby="user search term">
+            </label> -->
+           
+            <label>Please enter the state abbreviation for the state you'd like to search:
+            <input type="text" id="js-state-query" aria-labelledby="user search term" placeholder="e.g. CA">
+            </label>
+          <button type="submit">Search</button>
+        </form>
+<!-- aria-live tells the screen reader to watch this part of the DOM
+        for changes. We add `hidden` so that users won't be confused 
+        by the presence of an empty element.-->
+        <div class="output js-output" aria-live="assertive" hidden>
+                 
+        </div>
+      </main>
+      <script
+          src="https://code.jquery.com/jquery-3.2.1.min.js"
+          integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+          crossorigin="anonymous"></script>
+      <script src="index.js"></script>
+    </body>
+</html>
