@@ -46,33 +46,54 @@ function displayParkSearchData(item) {
   if (item.data.length==0) {
     campgroundStringArray.push(`<p>This park does not have any campgrounds.</p>`);
   } else {
-    // console.log(item.data[0]);
+    console.log(`item.data is`, item.data);
+
+    for (let i=0; i<item.data.length; i++) {
+      console.log(item.data[i]);
+    }
 
     $.each(item.data, function (itemkey, itemvalue) {
-      let code= itemvalue.parkCode;
+        let code= itemvalue.parkCode;
+        campgroundStringArray.push(`<div>`);
         campgroundStringArray.push(`
-        <div>
-          <h2>
-          <a class="js-result-name" href="${itemvalue.url}" target="_blank">
-          ${itemvalue.name}</a></h2>
-          <p>Description: ${itemvalue.description}</p> 
-          <p>Weather Overview: ${itemvalue.weatherOverview}</p>
-          <p>Toilets: ${itemvalue.amenities.toilets[0]}</p>
-          <p>Showers ${itemvalue.amenities.showers[0]}</p>
-          <p>Potable Water: ${itemvalue.amenities.potableWater[0]}${itemvalue.amenities.potableWater[1]} </p>
+
+          <h2>${itemvalue.name}</h2>
+          <p>${itemvalue.description}</p> 
+          <h3>Ammenities</h3>
+          <h4>Potable Water:</h4><p>`);
+        for (let i=0; i<itemvalue.amenities.potableWater.length; i++) {
+            campgroundStringArray.push(`${itemvalue.amenities.potableWater[i]}`);
+          };
+          campgroundStringArray.push(`</p><h4>Toilets: </h4>`);
+          for (let i=0; i<itemvalue.amenities.toilets.length; i++) {
+            campgroundStringArray.push(`<p>${itemvalue.amenities.toilets[i]}</p>`);
+          };
+          campgroundStringArray.push(`<h4>Showers:</h4> `);
+          for (let i=0; i<itemvalue.amenities.showers.length; i++) {
+            campgroundStringArray.push(`${itemvalue.amenities.showers[i]} </p>`);
+          };
+          campgroundStringArray.push(`<h4>Campsites:</h4>
           <p>Total sites: ${itemvalue.campsites.totalSites}</p>
+          <p>Electrical Hookups: ${itemvalue.campsites.electricalHookups}</p>
+          <p>Group sites: ${itemvalue.campsites.group}</p>
+          <p>RV only sites: ${itemvalue.campsites.rvOnly}</p>
           <p>Tent only sites: ${itemvalue.campsites.tentOnly}</p>
-        </div>`);
+          <p>Total sites: ${itemvalue.campsites.totalSites}</p>
+          `);
+          if(itemvalue.reservationsUrl!='') {
+          campgroundStringArray.push(`<p><a href ="${itemvalue.reservationsUrl}" target="_blank">Click here for online reservations!</a>`);
+          }
+          campgroundStringArray.push(`</div>`);
     });
   };
-  console.log(item.data.length);
-  console.log(campgroundStringArray);
+  
+  // console.log(campgroundStringArray);
   renderParkResult(campgroundStringArray);
 }
 
 function displayStateSearchData(item) {
   // console.log(item);
-  console.log(item.data[0]);
+  // console.log(item.data[0]);
   // console.log(item.data[0].description);
   const itemStringArray = [];
   $.each(item.data, function (itemkey, itemvalue) {
@@ -80,13 +101,14 @@ function displayStateSearchData(item) {
     // console.log(itemvalue.parkCode);
     itemStringArray.push(`
       <div>
-        <h2>
-          <a class="js-result-name" href="${itemvalue.url}" target="_blank">
-          ${itemvalue.fullName}</a></h2>
-          <p>${itemvalue.description}</p> 
+        <h2>${itemvalue.fullName}</h2>
+          <p>${itemvalue.description}</p>
+          <h3>Weather:</h3><p> ${itemvalue.weatherInfo}</p> 
           <p><a class="camping" href="#" id="${parkCode}">
           Campground information:</a></p>
           <div class="camp-results" aria-live="assertive" data-name="${parkCode}" hidden></div>
+          <a class="js-result-name" href="${itemvalue.url}" target="_blank">additional information on 
+          ${itemvalue.fullName}</a>
       </div>
       `);
   });
@@ -115,9 +137,9 @@ $(function() {
   });
 
   $('.js-output').on('click', '.camping', function() {
+    event.preventDefault();
     queryPark = $(this).attr('id');
-    // const queryName = $(this)attr('data-name');
     console.log(queryPark);
     getParkDataFromApi(queryPark, displayParkSearchData);
-    });
+  });
 })
