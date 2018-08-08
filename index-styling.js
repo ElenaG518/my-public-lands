@@ -83,9 +83,9 @@ function displayStateSearchData(item) {
     let parkCode= itemvalue.parkCode;
     itemStringArray.push(`
       <div class="park">
-        <h2>${itemvalue.fullName}</h2>
+        <h1>${itemvalue.fullName}</h1>
           <p>${itemvalue.description}</p>
-          <h3>Weather:</h3><p> ${itemvalue.weatherInfo}</p>
+          <h4>Weather:</h4><p> ${itemvalue.weatherInfo}</p>
           <div id="map">
             <iframe width="100%" height="450" frameborder="0" style="border:0"
             src="https://www.google.com/maps/embed/v1/place?q=${itemvalue.fullName},${itemvalue.states}&key=AIzaSyBdNRsY4zEYnRfcQ0_ZVVd370D7yuApzhI" allowfullscreen>
@@ -121,7 +121,7 @@ function displayAlertSearchData(result) {
   console.log("displayAlertSearchData function ran");
   const alertStringArray =[];
   if (result.data.length==0) {
-    alertStringArray.push(`<p>This park does not have any alerts at this time</p>`);
+    alertStringArray.push(`<div class="al"<p>This park does not have any alerts at this time</p></div>`);
   } else {
       for (let i=0;i<result.data.length; i++) {
         alertStringArray.push(`<div class="al"><h3>${result.data[i].title}</h3>

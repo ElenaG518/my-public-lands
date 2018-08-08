@@ -18,17 +18,12 @@ header {
   margin: 0 auto;
   max-width: 720px;
   background-color:rgb(202, 76, 38);
-  line-height: 2em;
   font-family: 'Abril Fatface', cursive;
-  padding: 50px;
+  padding: 20px;
   letter-spacing: 2px;
-}
-
-header h1 {
- font-size: 2em;
- padding: 50px auto;
- text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
- 
+  text-align: center;
+  font-size: 2.5em;
+  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
 }
 
 main {
@@ -103,11 +98,19 @@ h3, h4 {
   padding: 15px 15px 5px;
 }
 
-h2 {
-  padding: 15px;
+.park h1 {
+  padding: 25px;
   background-color: #99d1e4;
   font-family: 'Abril Fatface', cursive;
   margin-bottom: 20px;
+  text-align: center;
+}
+
+.camp h3 {
+  background-color: #a3ca70;
+    padding-bottom: 15px;
+    border: 1px solid #a3ca70;
+    border-bottom-color: lightgrey;
 }
 
 p{
@@ -146,10 +149,11 @@ span {
   font-weight: bold;
 }
 
-@media only screen and (min-width: 320px) {
-  h1 {
+@media only screen and (max-width: 420px)  {
+  header {
     font-size: 1.45em;
     text-align: center;
+    padding: 20px;
   }
 
   h2, h3 {
@@ -163,5 +167,9 @@ span {
 
   .toggle {
     margin-right: 5px;
+  } 
+
+  .al, .camp {
+    margin: 0px 5px 15px;
   } 
 }
