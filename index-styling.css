@@ -1,0 +1,167 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  border: 0;
+  margin: 0;
+  font-size: 100%;
+}
+
+body {
+  background: url('https://images.pexels.com/photos/302804/pexels-photo-302804.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940') no-repeat center fixed;
+  background-size: cover;
+  /* font-family: 'Archivo Black', sans-serif; */
+  font-family: 'Crete Round', serif;
+  }
+
+header {
+  color: rgb(252, 255, 225);
+  margin: 0 auto;
+  max-width: 720px;
+  background-color:rgb(202, 76, 38);
+  line-height: 2em;
+  font-family: 'Abril Fatface', cursive;
+  padding: 50px;
+  letter-spacing: 2px;
+}
+
+header h1 {
+ font-size: 2em;
+ padding: 50px auto;
+ text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+ 
+}
+
+main {
+  max-width: 1200px;
+  margin: 30px auto;
+}
+
+.welcome {
+  background-color: #a3ca70;
+  max-width: 600px;
+  margin: auto;
+  padding: 50px 50px;
+}
+
+span {
+  font-weight: bold;
+}
+
+.start {
+    font-size: inherit;
+    padding: 20px 40px;
+    margin: 60px auto 30px;
+    display: block;
+    background-color:rgb(99, 180, 117);
+    border: 2px outset rgba(211, 211, 211);
+}
+
+.start:hover, .start:focus {
+  background-color: rgb(99, 180, 117, 0.5);
+  border: 2px outset silver;
+  padding: 25px 45px;
+}
+
+form {
+  background-color: #a3ca70;
+  padding: 40px 5px;
+  text-align: left;
+  max-width: 400px;
+  margin: auto;
+}
+
+label {
+  display: block;
+  text-align: center;
+}
+
+select {
+  display: block;
+  margin: 10px auto;
+  border: 3px solid lightblue;
+  font-family: 'Crete Round', serif;
+}
+
+.park {
+  background-color: #b7edff;
+  margin: 25px auto 13px;
+  max-width: 720px;
+}
+
+#map {
+  width: 90%;
+  margin: 5%;
+} 
+
+.al, .camp {
+  background-color: #a3ca707d;
+  border: 1px solid lavender;
+  margin:15px;
+} 
+
+h3, h4 {
+  padding: 15px 15px 5px;
+}
+
+h2 {
+  padding: 15px;
+  background-color: #99d1e4;
+  font-family: 'Abril Fatface', cursive;
+  margin-bottom: 20px;
+}
+
+p{
+  padding: 5px 15px 20px;
+}
+
+.alerts, .campgrounds {
+  position: relative;
+  left:0;
+}
+
+.toggle {
+  position: absolute;
+  top:0;
+  right: 0;
+  display: inline-block;
+  width: 50px;
+  background-color: rgba(211, 211, 211, 0.432);
+  border: 2px outset lightgray;
+  border-image: initial;
+  padding: 5px;
+  margin: auto 15px;
+}
+
+.toggle:hover, toggle:focus {
+  background-color: silver;
+  border: 2px outset silver;
+  padding: 5px;
+}
+
+.hidden {
+  display: none;
+}
+
+span {
+  font-weight: bold;
+}
+
+@media only screen and (min-width: 320px) {
+  h1 {
+    font-size: 1.45em;
+    text-align: center;
+  }
+
+  h2, h3 {
+    font-family: 'Abril Fatface', cursive;
+  }
+  
+  #map {
+      width: 95%;
+      margin: 2.5%;
+  }
+
+  .toggle {
+    margin-right: 5px;
+  } 
+}
