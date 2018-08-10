@@ -1,0 +1,196 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  border: 0;
+  margin: 0;
+  font-size: 100%;
+}
+
+body {
+  background: url('https://images.pexels.com/photos/302804/pexels-photo-302804.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940') no-repeat center fixed;
+  background-size: cover;
+  /* font-family: 'Archivo Black', sans-serif; */
+  font-family: 'Crete Round', serif;
+  }
+
+header {
+  color: rgb(252, 255, 225);
+  margin: 0 auto;
+  max-width: 720px;
+  background-color:rgb(202, 76, 38);
+  font-family: 'Abril Fatface', cursive;
+  padding: 20px;
+  letter-spacing: 2px;
+  text-align: center;
+  font-size: 2.5em;
+  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+
+main {
+  max-width: 1200px;
+  margin: 30px auto;
+}
+
+.welcome {
+  background-color: #a3ca70;
+  max-width: 600px;
+  margin: auto;
+  padding: 50px 50px;
+}
+
+span {
+  font-weight: bold;
+}
+
+.start {
+    font-size: inherit;
+    padding: 20px 40px;
+    margin: 60px auto 30px;
+    display: block;
+    background-color:rgb(99, 180, 117);
+    border: 2px outset rgba(211, 211, 211);
+}
+
+.start:hover, .start:focus {
+  background-color: rgb(99, 180, 117, 0.5);
+  border: 2px outset silver;
+  padding: 25px 45px;
+}
+
+form {
+  background-color: #a3ca70;
+  padding: 40px 5px;
+  text-align: left;
+  max-width: 400px;
+  margin: auto;
+}
+
+label {
+  display: block;
+  text-align: center;
+}
+
+select {
+  display: block;
+  margin: 10px auto;
+  border: 3px solid lightblue;
+  font-family: 'Crete Round', serif;
+}
+
+.park {
+  background-color: #b7edff;
+  margin: 25px auto 13px;
+  max-width: 720px;
+  padding-bottom: 25px;
+}
+
+#map {
+  width: 90%;
+  margin: 5%;
+} 
+
+.al, .camp {
+  background-color: #a3ca707d;
+  border: 1px solid lavender;
+  margin:15px 0;
+} 
+
+h3, h4 {
+  padding: 15px 15px 5px;
+}
+
+.park h1 {
+  padding: 25px;
+  background-color: #99d1e4;
+  font-family: 'Abril Fatface', cursive;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.camp h3 {
+    padding-bottom: 15px;
+    border: 1px solid #a3ca70;
+    border-bottom-color: lightgrey;
+}
+
+p{
+  padding: 5px 15px 20px;
+  word-wrap: break-word;
+}
+
+.alerts, .campgrounds {
+  position: relative;
+  margin: 0 15px 20px;
+}
+
+
+.alerts p, .alerts h4, .campgrounds p, .campgrounds h4  {
+    background-color: lightgreen;
+    padding-bottom: 5px;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+  display: block;
+  color: rgb(0,0,139);
+  text-decoration: none;
+  text-align: center;
+}
+
+.alerts a, .campgrounds a {
+  padding: 15px 10px;
+  background-color: lightgreen;
+}
+
+.toggle {
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 15px;
+  width: 100%;
+  border: 1px solid lavender;
+  display: inline-block;
+  background-color: lightgreen;
+  font-family: 'Crete Round', serif;
+  cursor: pointer;
+}
+
+/*.toggle:hover, toggle:focus {
+  background-color: silver;
+  border: 2px outset silver;
+  
+}*/
+
+.hidden {
+  display: none;
+}
+
+@media only screen and (max-width: 420px)  {
+  header {
+    font-size: 1.45em;
+    text-align: center;
+    padding: 20px;
+  }
+
+  h2, h3 {
+    font-family: 'Abril Fatface', cursive;
+  }
+  
+  #map {
+      width: 95%;
+      margin: 2.5%;
+  }
+
+  .toggle {
+    margin-right: 5px;
+  } 
+
+  .al, .camp {
+    margin: 15px 0;
+  }
+
+  .js-result-name {
+    font-size: .8em;
+  } 
+}
