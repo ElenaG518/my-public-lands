@@ -79,7 +79,7 @@ select {
   padding-bottom: 25px;
 }
 
-#map {
+.map {
   width: 90%;
   margin: 5%;
 } 
