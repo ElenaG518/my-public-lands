@@ -166,7 +166,7 @@ a {
     font-family: 'Abril Fatface', cursive;
   }
   
-  #map {
+  .map {
       width: 95%;
       margin: 2.5%;
   }

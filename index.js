@@ -102,10 +102,7 @@ function displayStateSearchData(item) {
 
   // Iterate over a jQuery object, executing a function for each matched element.
 
-  // ?? what is the $ referring to in the line below?
-  // ?? when do I sent the item as a paramenter and not as
-  // item.data.each(function(itemkey, itemvalue){...})
-
+  
   $.each(item.data, function (itemkey, itemvalue) {
     var mystring = `${itemvalue.fullName}`;
      mystring = mystring.replace('&','and');
@@ -116,14 +113,14 @@ function displayStateSearchData(item) {
         <h1>${itemvalue.fullName}</h1>
           <p>${itemvalue.description}</p>
           <h4>Weather:</h4><p> ${itemvalue.weatherInfo}</p>
-          <div id="map">
-            <iframe width="100%" height="450" frameborder="0" style="border:0"
+          <div class="map">
+            <iframe title="map-${item.fullName}" width="100%" height="450" frameborder="0" style="border:0"
             src="https://www.google.com/maps/embed/v1/place?q=${mystring},${itemvalue.states}&key=AIzaSyBdNRsY4zEYnRfcQ0_ZVVd370D7yuApzhI" allowfullscreen>
           </iframe>
           </div> 
 
           <div class="alerts">
-            <a class="park-alerts" href="#" id="alerts" data-name="${parkCode}">
+            <a class="park-alerts" href="#" data-name="${parkCode}">
             Alert information:</a>
             <button class="toggle-style toggle-alerts hidden">Alert information:</button>
             <div class="alert-results" aria-live="assertive" data-name="${parkCode}" hidden></div>
@@ -132,7 +129,7 @@ function displayStateSearchData(item) {
 
 
           <div class="campgrounds">
-           <a class="camping" href="#" id="campgrounds" data-name="${parkCode}">
+           <a class="camping" href="#" data-name="${parkCode}">
             Campgrounds:</a>
             <button class="toggle-style toggle-camps hidden">Campgrounds:</button>
             <div class="camp-results" aria-live="assertive" data-name="${parkCode}" hidden></div>
@@ -228,16 +225,6 @@ function displayParkSearchData(item) {
   renderParkResult(campgroundStringArray);    
 };        
   
-// function showErr(err) {
-//   const outputElem = $('.js-output');
-//   const errMsg = (
-//     `<p>We couldn't find any National Parks related to your search term!</p>`
-//   ); 
-//   outputElem
-//     .prop('hidden', false)
-//     .html(errMsg);
-// };
-
 
 // when page is done loading, do the following:
 $(function() {
@@ -255,10 +242,7 @@ $(function() {
     console.log(`selections has been made with term ${queryStateVal}`);
     getStateDataFromApi(queryStateVal, displayStateSearchData);
 
-    // if using an input element
-    // $('.js-form').on('click', event => {
-    // let queryStateVal = $(event.currentTarget).find('.user-input').val();
-  });
+   });
 
   // when user clicks on campground link, call API for campground information,
   // and show toggle button for campgrounds
