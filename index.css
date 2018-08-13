@@ -15,7 +15,6 @@ body {
 header {
   color: rgb(252, 255, 225);
   margin: 0 auto;
-  max-width: 720px;
   background-color:rgb(202, 76, 38);
   font-family: 'Abril Fatface', cursive;
   padding: 20px;
@@ -31,14 +30,16 @@ main {
 }
 
 .welcome {
+  font-size: 125%;
   background-color: #a3ca70;
   max-width: 600px;
   margin: auto;
-  padding: 50px 50px;
+  padding: 50px 30px 45px 50px;  
 }
 
 .start {
-    font-size: inherit;
+    font-size: 125%;
+    font-weight: bolder;
     padding: 20px 40px;
     margin: 60px auto 30px;
     display: block;
@@ -47,6 +48,7 @@ main {
 }
 
 .start:hover, .start:focus {
+  font-size: 145%;
   background-color: rgb(99, 180, 117, 0.5);
   border: 2px outset silver;
   padding: 25px 45px;
@@ -56,11 +58,12 @@ form {
   background-color: #a3ca70;
   padding: 40px 5px;
   text-align: left;
-  max-width: 400px;
+  max-width: 500px;
   margin: auto;
 }
 
 label {
+  font-size: 115%;
   display: block;
   text-align: center;
 }
@@ -73,6 +76,7 @@ select {
 }
 
 .park {
+  line-height: 145%;
   background-color: #b7edff;
   margin: 25px auto 13px;
   max-width: 720px;
@@ -95,6 +99,7 @@ h3, h4 {
 }
 
 .park h1 {
+  font-size: 125%;
   padding: 25px;
   background-color: #99d1e4;
   font-family: 'Abril Fatface', cursive;
@@ -103,6 +108,7 @@ h3, h4 {
 }
 
 .camp h3 {
+    font-size: 115%;
     padding-bottom: 15px;
     border: 1px solid #a3ca70;
     border-bottom-color: lightgrey;
@@ -121,7 +127,7 @@ p {
 
 .alerts p, .alerts h4, .campgrounds p, .campgrounds h4  {
     background-color: lightgreen;
-    padding-bottom: 5px;
+    padding-top: 15px;
 }
 
 a {
@@ -157,9 +163,17 @@ a {
 
 @media only screen and (max-width: 420px)  {
   header {
-    font-size: 1.45em;
     text-align: center;
     padding: 20px;
+  }
+
+  header h1 {
+    font-size: 0.7em;
+  }
+
+  .welcome, label {
+    font-size: inherit;
+    padding: 25px 5px;
   }
 
   h2, h3 {
