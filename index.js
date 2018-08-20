@@ -1,6 +1,6 @@
 'use strict'
 
-// global variable that will capture value of park visitor is interested in from 
+// global variable that will capture value of park visitor is interested in from
 // GetStateDataFromApi function.
 let queryPark;
 
@@ -23,7 +23,7 @@ function getStateDataFromApi(stateTerm, callback) {
 });
 };
 
-// Get alert information from API when user clicks link to get alert information for 
+// Get alert information from API when user clicks link to get alert information for
 // selected park in the list of results
 
 const NPS_ALERT_SEARCH_URL = 'https://api.nps.gov/api/v1/alerts';
@@ -35,14 +35,14 @@ function getAlertDataFromApi(parkTerm, callback) {
     limit: 5,
     api_key: 'AIzaSyDE2RS2B27KuUp-G6TWpRFtLpySC36Zf3c',
   };
-  
+
   $.getJSON(NPS_ALERT_SEARCH_URL, query, callback)
       .fail(function (jqXHR, error, errorThrown) {
                 console.log(jqXHR);
                 console.log(error);
                 console.log(errorThrown);
   });
-}; 
+};
 
 
 // get campground information from API when user clicks lnk to get campground info
@@ -90,7 +90,7 @@ function renderParkResult(result) {
 }
 
 // manipulate results and turn it into a string that will be used
-// as the html to populate national park information for selected state, in 
+// as the html to populate national park information for selected state, in
 // addittion to creating links to call in API for alerts and API for campgrounds
 function displayStateSearchData(item) {
   console.log('displayStateSearchData function ran');
@@ -102,7 +102,7 @@ function displayStateSearchData(item) {
 
   // Iterate over a jQuery object, executing a function for each matched element.
 
-  
+
   $.each(item.data, function (itemkey, itemvalue) {
     var mystring = `${itemvalue.fullName}`;
      mystring = mystring.replace('&','and');
@@ -117,7 +117,7 @@ function displayStateSearchData(item) {
             <iframe title="map-${item.fullName}" width="100%" height="450" frameborder="0" style="border:0"
             src="https://www.google.com/maps/embed/v1/place?q=${mystring},${itemvalue.states}&key=AIzaSyBdNRsY4zEYnRfcQ0_ZVVd370D7yuApzhI" allowfullscreen>
           </iframe>
-          </div> 
+          </div>
 
           <div class="alerts">
             <a class="park-alerts" href="#" data-name="${parkCode}">
@@ -134,9 +134,9 @@ function displayStateSearchData(item) {
             <button class="toggle-style toggle-camps hidden">Campgrounds:</button>
             <div class="camp-results" aria-live="assertive" data-name="${parkCode}" hidden></div>
           </div>
-          
 
-          <p><a class="js-result-name" href="${itemvalue.url}" target="_blank"> 
+
+          <p><a class="js-result-name" href="${itemvalue.url}" target="_blank">
           ${itemvalue.fullName}</a></p>
       </div>`
       );
@@ -157,9 +157,9 @@ function displayAlertSearchData(result) {
         alertStringArray.push(`<div class="al"><h3>${result.data[i].title}</h3>
         <h4>${result.data[i].category}</h4>
         <p>${result.data[i].description}</p>
-       <p><a href="${result.data[i].url}" target"_blank">more information</a></p><div>`);
+       <p><a href="${result.data[i].url}" target="_blank">more information</a></p><div>`);
       };
-  };    
+  };
   console.log(alertStringArray);
   renderAlertResult(alertStringArray);
 };
@@ -205,7 +205,7 @@ function displayParkSearchData(item) {
        campgroundStringArray.push(`
        <div class="camp">
        <h3>${itemvalue.name}</h3>
-       <p>${itemvalue.description}</p> 
+       <p>${itemvalue.description}</p>
        <h4>Potable Water:</h4>
        <p>${water}</p>
        <h4>Toilets: </h4>
@@ -222,19 +222,19 @@ function displayParkSearchData(item) {
       });
   };
   console.log(campgroundStringArray);
-  renderParkResult(campgroundStringArray);    
-};        
-  
+  renderParkResult(campgroundStringArray);
+};
+
 
 // when page is done loading, do the following:
 $(function() {
-  
+
   // hide landing page and show state options
   $('button').click(function() {
     $('.welcome').hide();
     $('.content').removeClass('hidden');
   });
-  
+
   // when user changes the selection for state, take that input and call API
   $('.user-input').on('change', event => {
     event.preventDefault();
@@ -266,7 +266,7 @@ $(function() {
 
   });
 
-  // when toggle button is pressed in Alert information section, either hides or displays 
+  // when toggle button is pressed in Alert information section, either hides or displays
   // div content without having to call API again.
   $('.js-output').on('click', '.toggle-alerts', function(event) {
     event.stopPropagation();
@@ -276,7 +276,7 @@ $(function() {
   });
 
 
-  // when toggle button is pressed in campground section, either hides or displays 
+  // when toggle button is pressed in campground section, either hides or displays
   // div content without having to call API again.
   $('.js-output').on('click', '.toggle-camps', function(event) {
     event.stopPropagation();
