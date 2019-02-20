@@ -96,13 +96,8 @@ function displayStateSearchData(item) {
   console.log('displayStateSearchData function ran');
   // variable that will contain the string with the results
   const itemStringArray = [];
-  // for (let i=0; i<item.data.length; i++) {
-  //     console.log(item.data[i]);
-  //   }
-
+  
   // Iterate over a jQuery object, executing a function for each matched element.
-
-
   $.each(item.data, function (itemkey, itemvalue) {
     var mystring = `${itemvalue.fullName}`;
      mystring = mystring.replace('&','and');
@@ -111,33 +106,30 @@ function displayStateSearchData(item) {
     itemStringArray.push(`
       <div class="park">
         <h1>${itemvalue.fullName}</h1>
+        <div class="park-content">
           <p>${itemvalue.description}</p>
           <h4>Weather:</h4><p> ${itemvalue.weatherInfo}</p>
+          
           <div class="map">
             <iframe title="map-${item.fullName}" width="100%" height="450" frameborder="0" style="border:0"
             src="https://www.google.com/maps/embed/v1/place?q=${mystring},${itemvalue.states}&key=AIzaSyBdNRsY4zEYnRfcQ0_ZVVd370D7yuApzhI" allowfullscreen>
           </iframe>
           </div>
-
           <div class="alerts">
             <a class="park-alerts" href="#" data-name="${parkCode}">
             Alert information:</a>
             <button class="toggle-style toggle-alerts hidden">Alert information:</button>
             <div class="alert-results" aria-live="assertive" data-name="${parkCode}" hidden></div>
           </div>
-
-
-
           <div class="campgrounds">
            <a class="camping" href="#" data-name="${parkCode}">
             Campgrounds:</a>
             <button class="toggle-style toggle-camps hidden">Campgrounds:</button>
             <div class="camp-results" aria-live="assertive" data-name="${parkCode}" hidden></div>
           </div>
-
-
           <p><a class="js-result-name" href="${itemvalue.url}" target="_blank">
           ${itemvalue.fullName}</a></p>
+        </div>
       </div>`
       );
   });

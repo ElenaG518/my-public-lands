@@ -83,9 +83,14 @@ select {
 .park {
     line-height: 145%;
     background-color: #b7edff;
-    margin: 25px auto 13px;
+    margin: 45px auto 13px;
     max-width: 720px;
     padding-bottom: 25px;
+}
+
+.park-content {
+    padding: 25px 30px;
+    line-height: 45px;
 }
 
 .map {
@@ -204,6 +209,9 @@ a {
         margin: 25% 10%;
         line-height: 35px;
     }
+    .park {
+        margin: 50px 5% 13px;
+    }
 }
 
 @media only screen and (max-width: 420px) {
@@ -214,16 +222,9 @@ a {
     header h1 {
         font-size: 0.7em;
     }
-    /* main {
-        margin: 0 auto;
-        padding: 0;
+    .park {
+        margin: 50px 2% 13px;
     }
-    .welcome,
-    label {
-        margin: 0;
-        font-size: inherit;
-        padding: 50px 30px 45px 50px;
-    } */
     form {
         margin: 25% 5%;
         padding: 0;
