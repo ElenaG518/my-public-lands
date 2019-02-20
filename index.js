@@ -115,20 +115,20 @@ function displayStateSearchData(item) {
             src="https://www.google.com/maps/embed/v1/place?q=${mystring},${itemvalue.states}&key=AIzaSyBdNRsY4zEYnRfcQ0_ZVVd370D7yuApzhI" allowfullscreen>
           </iframe>
           </div>
-          <div class="alerts">
+          <div class="info">
             <a class="park-alerts" href="#" data-name="${parkCode}">
             Alert information:</a>
             <button class="toggle-style toggle-alerts hidden">Alert information:</button>
             <div class="alert-results" aria-live="assertive" data-name="${parkCode}" hidden></div>
           </div>
-          <div class="campgrounds">
+          <div class="info">
            <a class="camping" href="#" data-name="${parkCode}">
             Campgrounds:</a>
             <button class="toggle-style toggle-camps hidden">Campgrounds:</button>
             <div class="camp-results" aria-live="assertive" data-name="${parkCode}" hidden></div>
           </div>
-          <p><a class="js-result-name" href="${itemvalue.url}" target="_blank">
-          ${itemvalue.fullName}</a></p>
+          <a class="js-result-name" href="${itemvalue.url}" target="_blank">
+          ${itemvalue.fullName}</a>
         </div>
       </div>`
       );
@@ -143,13 +143,15 @@ function displayAlertSearchData(result) {
   console.log("displayAlertSearchData function ran");
   const alertStringArray =[];
   if (result.data.length==0) {
-    alertStringArray.push(`<div class="al"><p>This park does not have any alerts at this time</p></div>`);
+    alertStringArray.push(`<div class="expanded-info"><p class="no-info">This park does not have any alerts at this time</p></div>`);
   } else {
       for (let i=0;i<result.data.length; i++) {
-        alertStringArray.push(`<div class="al"><h3>${result.data[i].title}</h3>
+        alertStringArray.push(`<div class="expanded-info">
+        <h3>${result.data[i].title}</h3>
         <h4>${result.data[i].category}</h4>
         <p>${result.data[i].description}</p>
-       <p><a href="${result.data[i].url}" target="_blank">more information</a></p><div>`);
+       <a href="${result.data[i].url}" target="_blank">more information</a>
+       </div>`);
       };
   };
   console.log(alertStringArray);
@@ -163,7 +165,7 @@ function displayParkSearchData(item) {
   console.log('displayParkSearchData function ran');
   const campgroundStringArray =[];
   if (item.data.length==0) {
-    campgroundStringArray.push(`<div class="camp"><p>This park does not have any campgrounds.</p></div>`);
+    campgroundStringArray.push(`<div class="expanded-info"><p class="no-info">This park does not have any campgrounds.</p></div>`);
   } else {
     console.log(`item.data is`, item.data);
 
@@ -195,21 +197,18 @@ function displayParkSearchData(item) {
         console.log(`this is showers`, showers);
 
        campgroundStringArray.push(`
-       <div class="camp">
        <h3>${itemvalue.name}</h3>
+       <div class="expanded-info">
        <p>${itemvalue.description}</p>
-       <h4>Potable Water:</h4>
-       <p>${water}</p>
-       <h4>Toilets: </h4>
-       <p>${toilets}</p>
-       <h4>Showers:</h4>
-       <p>${showers}</p>
-       <h4>Campsites:</h4>
-       <p>Total sites: ${itemvalue.campsites.totalSites}</p>
-       <p>Electrical Hookups: ${itemvalue.campsites.electricalHookups}</p>
-       <p>Group sites: ${itemvalue.campsites.group}</p>
-       <p>RV only sites: ${itemvalue.campsites.rvOnly}</p>
-       <p>Tent only sites: ${itemvalue.campsites.tentOnly}</p>
+       <p>Potable Water:  ${water}<br>
+       Toilets: ${toilets}<br>
+       Showers:  ${showers}<br>
+       Campsites:<br>
+       Total sites: ${itemvalue.campsites.totalSites}<br>
+       Electrical Hookups: ${itemvalue.campsites.electricalHookups}<br>
+       Group sites: ${itemvalue.campsites.group}<br>
+       RV only sites: ${itemvalue.campsites.rvOnly}<br>
+       Tent only sites: ${itemvalue.campsites.tentOnly}</p>
        </div>`);
       });
   };
