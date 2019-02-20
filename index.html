@@ -1,31 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width">
-        <title>Search for National Parks by State</title>
-        <link href="index.css" rel="stylesheet" type="text/css" />
-        <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Crete+Round" rel="stylesheet">
-    </head>
-    <body>
-      <header role="banner">
-        <h1>National Parks by State</h1>
-      </header>  
-      <main role="main">
-        <section role="region" class="welcome">
-          <p>National Parks by State lists all the national parks for any state of your choice.</p>
 
-           <p>It provides a map, alert information, campground information, and a link to each park's website.</p>
-          <p>Select a state from the drop down menu, and let National Parks by State do all the research for your next national park adventure!</p>
-          <button class="start"><span>Let's go!</span></button>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Search for National Parks by State</title>
+    <link href="index.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Crete+Round" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+</head>
+
+<body>
+    <header role="banner">
+        <h1>National Parks by State</h1>
+    </header>
+    <main role="main">
+        <section role="region" class="welcome">
+            <p>National Parks by State lists all the national parks for any state of your choice.</p>
+
+            <p>It provides a map, alert information, campground information, and a link to each park's website.</p>
+            <p>Select a state from the drop down menu, and let National Parks by State do all the research for your next national park adventure!</p>
+            <button class="start"><span>Let's go!</span></button>
         </section>
-        <section role="region" class="content hidden">     
-        <form action="#" class="js-search-form">
-          <!-- <label>Search by the name of National Park:
+        <section role="region" class="content hidden">
+            <form action="#" class="js-search-form">
+                <!-- <label>Search by the name of National Park:
             <input type="text" id="js-park-query" aria-labelledby="user search term">
             </label> -->
-          
-          <label>Please select the state you'd like to search:
+
+                <label>Please select the state you'd like to search:
             <select name="state" class="user-input" autofocus>
               <option>state</option>
               <option value="AL">Alabama</option>
@@ -80,19 +83,17 @@
               <option value="WY">Wyoming</option>
             </select>
           </label>
-          <!-- <button type="submit">Search</button> -->
-        </form>
-<!-- aria-live tells the screen reader to watch this part of the DOM
+                <!-- <button type="submit">Search</button> -->
+            </form>
+            <!-- aria-live tells the screen reader to watch this part of the DOM
         for changes. We add `hidden` so that users won't be confused 
         by the presence of an empty element.-->
-        <div class="js-output" aria-live="assertive" hidden>
-        </div>
-        </section> 
-      </main>
-      <script
-          src="https://code.jquery.com/jquery-3.2.1.min.js"
-          integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-          crossorigin="anonymous"></script>
-      <script src="index.js"></script>
-    </body>
+            <div class="js-output" aria-live="assertive" hidden>
+            </div>
+        </section>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+</body>
+
 </html>

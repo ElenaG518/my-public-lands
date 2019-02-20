@@ -12,7 +12,7 @@ function getStateDataFromApi(stateTerm, callback) {
   console.log(`getStateFromApi function ran with ${stateTerm}`);
   const query = {
     stateCode: `${stateTerm}`,
-    limit: 5,
+    // limit: 5,
     api_key: 'AIzaSyDE2RS2B27KuUp-G6TWpRFtLpySC36Zf3c',
   };
   $.getJSON(NPS_STATE_SEARCH_URL, query, callback)
