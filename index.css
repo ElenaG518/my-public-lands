@@ -1,110 +1,117 @@
 * {
-  box-sizing: border-box;
-  padding: 0;
-  border: 0;
-  margin: 0;
-  font-size: 100%;
+    box-sizing: border-box;
+    padding: 0;
+    border: 0;
+    margin: 0;
+    font-size: 100%;
 }
 
 body {
-  background: url('https://images.pexels.com/photos/302804/pexels-photo-302804.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940') no-repeat center fixed;
-  background-size: cover;
-  font-family: 'Crete Round', serif;
+    background: url('https://images.pexels.com/photos/302804/pexels-photo-302804.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940') no-repeat center fixed;
+    background-size: cover;
+    font-family: 'Crete Round', serif;
 }
 
 header {
-  color: rgb(252, 255, 225);
-  margin: 0 auto;
-  background-color:rgb(202, 76, 38);
-  font-family: 'Abril Fatface', cursive;
-  padding: 20px;
-  letter-spacing: 2px;
-  text-align: center;
-  font-size: 2.5em;
-  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+    color: rgb(252, 255, 225);
+    margin: 0 auto;
+    background-color: rgb(202, 76, 38);
+    font-family: 'Abril Fatface', cursive;
+    padding: 60px 0;
+    letter-spacing: 2px;
+    text-align: center;
+    font-size: 3em;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
 }
 
 main {
-  max-width: 1200px;
-  margin: 30px auto;
+    padding: 100px 75px 50px;
+    max-width: 1200px;
+    margin: 50px auto;
 }
 
 .welcome {
-  font-size: 125%;
-  background-color: #a3ca70;
-  max-width: 600px;
-  margin: auto;
-  padding: 50px 30px 45px 50px;  
+    font-size: 125%;
+    line-height: 50px;
+    background-color: #a3ca70;
+    margin: auto 12.5%;
+    padding: 100px 75px 50px;
 }
 
 .start {
     font-size: 125%;
     font-weight: bolder;
-    padding: 20px 40px;
+    padding: 15px 25px;
     margin: 60px auto 30px;
     display: block;
-    background-color:rgb(99, 180, 117);
+    /* background-color: rgb(99, 180, 117); */
+    background-color: #ffbe93;
     border: 2px outset rgba(211, 211, 211);
+    border-radius: 15px;
 }
 
-.start:hover, .start:focus {
-  font-size: 145%;
-  background-color: rgb(99, 180, 117, 0.5);
-  border: 2px outset silver;
-  padding: 25px 45px;
+.start:hover,
+.start:focus {
+    /* background-color: rgb(99, 180, 117, 0.5); */
+    border: 2px inset silver;
+    box-shadow: 2px 2px;
+    background-color: lightsalmon;
 }
 
 form {
-  background-color: #a3ca70;
-  padding: 40px 5px;
-  text-align: left;
-  max-width: 500px;
-  margin: auto;
+    background-color: #a3ca70;
+    padding: 40px 5px;
+    text-align: left;
+    max-width: 500px;
+    margin: auto;
+    line-height: 75px;
 }
 
 label {
-  font-size: 115%;
-  display: block;
-  text-align: center;
+    font-size: 115%;
+    display: block;
+    text-align: center;
 }
 
 select {
-  display: block;
-  margin: 10px auto;
-  border: 3px solid lightblue;
-  font-family: 'Crete Round', serif;
+    display: block;
+    margin: 10px auto;
+    border: 3px solid lightblue;
+    font-family: 'Crete Round', serif;
 }
 
 .park {
-  line-height: 145%;
-  background-color: #b7edff;
-  margin: 25px auto 13px;
-  max-width: 720px;
-  padding-bottom: 25px;
+    line-height: 145%;
+    background-color: #b7edff;
+    margin: 25px auto 13px;
+    max-width: 720px;
+    padding-bottom: 25px;
 }
 
 .map {
-  width: 90%;
-  margin: 5%;
-} 
+    width: 90%;
+    margin: 5%;
+}
 
-.al, .camp {
-  background-color: #a3ca707d;
-  border: 1px solid lavender;
-  margin:15px 0;
-} 
+.al,
+.camp {
+    background-color: #a3ca707d;
+    border: 1px solid lavender;
+    margin: 15px 0;
+}
 
-h3, h4 {
-  padding: 15px 15px 5px;
+h3,
+h4 {
+    padding: 15px 15px 5px;
 }
 
 .park h1 {
-  font-size: 125%;
-  padding: 25px;
-  background-color: #99d1e4;
-  font-family: 'Abril Fatface', cursive;
-  margin-bottom: 20px;
-  text-align: center;
+    font-size: 125%;
+    padding: 25px;
+    background-color: #99d1e4;
+    font-family: 'Abril Fatface', cursive;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 .camp h3 {
@@ -115,85 +122,128 @@ h3, h4 {
 }
 
 p {
-  padding: 5px 15px 20px;
-  word-wrap: break-word;
+    padding: 5px 15px 20px;
+    word-wrap: break-word;
 }
 
-.alerts, .campgrounds {
-  position: relative;
-  margin: 0 15px 20px;
+.alerts,
+.campgrounds {
+    position: relative;
+    margin: 0 15px 20px;
 }
 
-
-.alerts p, .alerts h4, .campgrounds p, .campgrounds h4  {
+.alerts p,
+.alerts h4,
+.campgrounds p,
+.campgrounds h4 {
     background-color: lightgreen;
     padding-top: 15px;
 }
 
 a {
-  text-decoration: none;
-  cursor: pointer;
-  display: block;
-  color: rgb(0,0,139);
-  text-decoration: none;
-  text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    display: block;
+    color: rgb(0, 0, 139);
+    text-decoration: none;
+    text-align: center;
 }
 
-.alerts a, .campgrounds a {
-  padding: 15px 10px;
-  background-color: lightgreen;
+.alerts a,
+.campgrounds a {
+    padding: 15px 10px;
+    background-color: lightgreen;
 }
 
 .toggle-style {
-  position: absolute;
-  left: 0;
-  top: 0;
-  padding: 15px;
-  width: 100%;
-  border: 1px solid lavender;
-  display: inline-block;
-  background-color: lightgreen;
-  font-family: 'Crete Round', serif;
-  cursor: pointer;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 15px;
+    width: 100%;
+    border: 1px solid lavender;
+    display: inline-block;
+    background-color: lightgreen;
+    font-family: 'Crete Round', serif;
+    cursor: pointer;
 }
 
 .hidden {
-  display: none;
+    display: none;
 }
 
-@media only screen and (max-width: 420px)  {
-  header {
-    text-align: center;
-    padding: 20px;
-  }
+@media only screen and (max-width: 1100px) {
+    .welcome,
+    label {
+        margin: auto 5%;
+    }
+}
 
-  header h1 {
-    font-size: 0.7em;
-  }
+@media only screen and (max-width: 800px) {
+    .welcome,
+    label {
+        margin: auto 0;
+    }
+    main {
+        padding-top: 50px;
+    }
+}
 
-  .welcome, label {
-    font-size: inherit;
-    padding: 25px 5px;
-  }
+@media only screen and (max-width: 620px) {
+    main {
+        margin: 0 auto;
+        padding: 0;
+    }
+    .welcome,
+    label {
+        margin: 0;
+        font-size: inherit;
+        padding: 50px 30px 45px 50px;
+    }
+    form {
+        margin: 25% 10%;
+        line-height: 35px;
+    }
+}
 
-  h2, h3 {
-    font-family: 'Abril Fatface', cursive;
-  }
-  
-  .map {
-      width: 95%;
-      margin: 2.5%;
-  }
-
-  .toggle-style {
-    margin-right: 5px;
-  } 
-
-  .al, .camp {
-    margin: 15px 0;
-  }
-
-  .js-result-name {
-    font-size: .8em;
-  } 
+@media only screen and (max-width: 420px) {
+    header {
+        text-align: center;
+        padding: 30px 25px 20px;
+    }
+    header h1 {
+        font-size: 0.7em;
+    }
+    /* main {
+        margin: 0 auto;
+        padding: 0;
+    }
+    .welcome,
+    label {
+        margin: 0;
+        font-size: inherit;
+        padding: 50px 30px 45px 50px;
+    } */
+    form {
+        margin: 25% 5%;
+        padding: 0;
+    }
+    h2,
+    h3 {
+        font-family: 'Abril Fatface', cursive;
+    }
+    .map {
+        width: 95%;
+        margin: 2.5%;
+    }
+    .toggle-style {
+        margin-right: 5px;
+    }
+    .al,
+    .camp {
+        margin: 15px 0;
+    }
+    .js-result-name {
+        font-size: .8em;
+    }
 }
