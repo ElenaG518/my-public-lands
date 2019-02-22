@@ -8,10 +8,11 @@
     <link href="index.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Crete+Round" rel="stylesheet">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 </head>
 
 <body>
-    <header role="banner">
+    <header role="banner" id="top">
         <h1>National Parks by State</h1>
     </header>
     <main role="main">
@@ -23,7 +24,7 @@
             <button class="start"><span>Let's go!</span></button>
         </section>
         <section role="region" class="content hidden">
-            <form action="#" class="js-search-form">
+            <form action="#" id="search-form" class="js-search-form">
                 <!-- <label>Search by the name of National Park:
             <input type="text" id="js-park-query" aria-labelledby="user search term">
             </label> -->
@@ -92,6 +93,11 @@
             </div>
         </section>
     </main>
+    <footer class="hidden">
+        <a href="#top" class="up fas fa-arrow-up"><span class="hidden">top</span></a>
+    </footer>
+
+
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="index.js"></script>
 </body>

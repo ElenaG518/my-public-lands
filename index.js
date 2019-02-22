@@ -71,6 +71,7 @@ function renderResult(result) {
   $('.js-output')
   .prop('hidden', false)
   .html(result);
+  $('footer').removeClass('hidden');
 }
 
 // render results of alerts for selected park
