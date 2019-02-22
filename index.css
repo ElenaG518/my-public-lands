@@ -123,7 +123,6 @@ select {
     padding: 15px 0;
     border: 1px solid silver;
     background-color: #99d1e4;
-    /* border-bottom-color: lightgrey; */
 }
 
 p {
@@ -209,7 +208,6 @@ a {
     width: 100%;
     border: 1px solid lavender;
     display: inline-block;
-    /* background-color: lightgreen; */
     font-family: 'Crete Round', serif;
     cursor: pointer;
     color: darkgreen;
@@ -252,8 +250,9 @@ a {
         margin: 25% 10%;
         line-height: 35px;
     }
-    .park {
-        margin: 50px 5% 13px;
+    .map {
+        margin: auto;
+        width: 100%;
     }
 }
 
@@ -265,8 +264,8 @@ a {
     header h1 {
         font-size: 0.7em;
     }
-    .park {
-        margin: 50px 2% 13px;
+    .park-content {
+        padding: 15px;
     }
     form {
         margin: 25% 5%;
@@ -275,10 +274,6 @@ a {
     h2,
     h3 {
         font-family: 'Abril Fatface', cursive;
-    }
-    .map {
-        width: 95%;
-        margin: 2.5%;
     }
     .toggle-style {
         margin-right: 5px;
