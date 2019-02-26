@@ -12,7 +12,7 @@ function getStateDataFromApi(stateTerm, callback) {
   console.log(`getStateFromApi function ran with ${stateTerm}`);
   const query = {
     stateCode: `${stateTerm}`,
-    // limit: 5,
+    limit: 5,
     api_key: 'AIzaSyDE2RS2B27KuUp-G6TWpRFtLpySC36Zf3c',
   };
   $.getJSON(NPS_STATE_SEARCH_URL, query, callback)
@@ -95,6 +95,7 @@ function renderParkResult(result) {
 // addittion to creating links to call in API for alerts and API for campgrounds
 function displayStateSearchData(item) {
   console.log('displayStateSearchData function ran');
+  console.log("answer ", item);
   // variable that will contain the string with the results
   const itemStringArray = [];
   
@@ -120,13 +121,13 @@ function displayStateSearchData(item) {
             <a class="park-alerts" href="#" data-name="${parkCode}">
             Alert information:</a>
             <button class="toggle-style toggle-alerts hidden">Alert information:</button>
-            <div class="alert-results" aria-live="assertive" data-name="${parkCode}" hidden></div>
+            <div class="alert-results hidden" aria-live="assertive" data-name="${parkCode}" hidden></div>
           </div>
           <div class="info">
            <a class="camping" href="#" data-name="${parkCode}">
             Campgrounds:</a>
             <button class="toggle-style toggle-camps hidden">Campgrounds:</button>
-            <div class="camp-results" aria-live="assertive" data-name="${parkCode}" hidden></div>
+            <div class="camp-results hidden" aria-live="assertive" data-name="${parkCode}" hidden></div>
           </div>
           <a class="js-result-name" href="${itemvalue.url}" target="_blank">
           ${itemvalue.fullName}</a>
@@ -164,6 +165,7 @@ function displayAlertSearchData(result) {
 
 function displayParkSearchData(item) {
   console.log('displayParkSearchData function ran');
+  console.log('park answer ', item);
   const campgroundStringArray =[];
   if (item.data.length==0) {
     campgroundStringArray.push(`<div class="expanded-info"><p class="no-info">This park does not have any campgrounds.</p></div>`);
@@ -236,24 +238,16 @@ $(function() {
 
    });
 
-  // when user clicks on campground link, call API for campground information,
-  // and show toggle button for campgrounds
-  $('.js-output').on('click', '.camping', function() {
-    event.preventDefault();
-    queryPark = $(this).attr('data-name');
-    console.log(`campground link has been clicked with with term ${queryPark}`);
-    $(this).siblings('.toggle-camps').removeClass('hidden');
-    getParkDataFromApi(queryPark, displayParkSearchData);
-  });
-
-
+  
   // when user clicks on alert information link, call API for alert information,
   // and show toggle button for alerts
   $('.js-output').on('click', '.park-alerts', function() {
     event.preventDefault();
     queryPark = $(this).attr('data-name');
     console.log(`Alert link has been clicked with with term ${queryPark}`);
-    $(this).siblings('.toggle-alerts').removeClass('hidden');
+    $(this).siblings('.toggle-alerts').toggleClass('hidden');
+    $(this).toggleClass('hidden');
+    $(this).siblings('.alert-results').toggleClass('hidden');
     getAlertDataFromApi(queryPark, displayAlertSearchData);
 
   });
@@ -263,16 +257,31 @@ $(function() {
   $('.js-output').on('click', '.toggle-alerts', function(event) {
     event.stopPropagation();
     console.log('toggle button on alerts has been pressed');
-    // $(event.currentTarget).closest('.alerts').toggleClass('hidden');
+    // $(event.currentTarget).closest('.park-alerts').toggleClass('hidden');
+    $(this).siblings('.park-alerts').toggleClass('hidden');
     $(this).siblings('.alert-results').toggleClass('hidden');
+    $(this).toggleClass('hidden');
   });
 
+// when user clicks on campground link, call API for campground information,
+  // and show toggle button for campgrounds
+  $('.js-output').on('click', '.camping', function() {
+    event.preventDefault();
+    queryPark = $(this).attr('data-name');
+    console.log(`campground link has been clicked with with term ${queryPark}`);
+    $(this).siblings('.toggle-camps').toggleClass('hidden');
+    $(this).toggleClass('hidden');
+    $(this).siblings('.camp-results').toggleClass('hidden');
+    getParkDataFromApi(queryPark, displayParkSearchData);
+  });
 
   // when toggle button is pressed in campground section, either hides or displays
   // div content without having to call API again.
   $('.js-output').on('click', '.toggle-camps', function(event) {
     event.stopPropagation();
     console.log('toggle button on campgrounds has been pressed');
+    $(this).siblings('.camping').toggleClass('hidden');
     $(this).siblings('.camp-results').toggleClass('hidden');
+    $(this).toggleClass('hidden');
   });
 })
