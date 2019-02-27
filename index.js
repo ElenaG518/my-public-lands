@@ -119,14 +119,14 @@ function displayStateSearchData(item) {
           </div>
           <div class="info">
             <a class="park-alerts" href="#" data-name="${parkCode}">
-            Alert information:</a>
-            <button class="toggle-style toggle-alerts hidden">Alert information:</button>
+            Alert information <i class="fas fa-plus right"></i></a>
+            <button class="toggle-style toggle-alerts hidden">Alert information <i class="fas fa-minus right"></i></button>
             <div class="alert-results hidden" aria-live="assertive" data-name="${parkCode}" hidden></div>
           </div>
           <div class="info">
            <a class="camping" href="#" data-name="${parkCode}">
-            Campgrounds:</a>
-            <button class="toggle-style toggle-camps hidden">Campgrounds:</button>
+            Campgrounds <i class="fas fa-plus right"></i></a>
+            <button class="toggle-style toggle-camps hidden">Campgrounds <i class="fas fa-minus right"></i></button>
             <div class="camp-results hidden" aria-live="assertive" data-name="${parkCode}" hidden></div>
           </div>
           <a class="js-result-name" href="${itemvalue.url}" target="_blank">

@@ -200,7 +200,7 @@ a {
 }
 
 .toggle-style {
-    padding: 20px;
+    padding: 10px 0;
     width: 100%;
     border: 1px solid lavender;
     display: inline-block;
@@ -212,6 +212,11 @@ a {
 
 .hidden {
     display: none;
+}
+
+.right {
+    float: right;
+    padding: 10px 20px 10px;
 }
 
 footer {
