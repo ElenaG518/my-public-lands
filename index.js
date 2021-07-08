@@ -6,62 +6,63 @@ let queryPark;
 
 // Get state input from user for search term.
 
-const NPS_STATE_SEARCH_URL = 'https://api.nps.gov/api/v1/parks';
+const NPS_SEARCH_URL = 'https://developer.nps.gov/api/v1';
+const api_key = 'FZ1AoxiOHsEojtg0w1Mbe9Ekumra3tq2qiOVY0t0'
 
 function getStateDataFromApi(stateTerm, callback) {
   console.log(`getStateFromApi function ran with ${stateTerm}`);
   const query = {
     stateCode: `${stateTerm}`,
-    limit: 5,
-    api_key: 'AIzaSyDE2RS2B27KuUp-G6TWpRFtLpySC36Zf3c',
+    // limit: 5,
+    api_key
   };
-  $.getJSON(NPS_STATE_SEARCH_URL, query, callback)
-      .fail(function (jqXHR, error, errorThrown) {
-                console.log(jqXHR);
-                console.log(error);
-                console.log(errorThrown);
-});
+  $.getJSON(`${NPS_SEARCH_URL}/parks`, query, callback)
+    .fail(function (jqXHR, error, errorThrown) {
+      console.log(jqXHR);
+      console.log(error);
+      console.log(errorThrown);
+    });
 };
 
 // Get alert information from API when user clicks link to get alert information for
 // selected park in the list of results
 
-const NPS_ALERT_SEARCH_URL = 'https://api.nps.gov/api/v1/alerts';
+// const NPS_ALERT_SEARCH_URL = 'https://developer.nps.gov/api/v1/alerts';
 
 function getAlertDataFromApi(parkTerm, callback) {
   console.log(`getAlerDataFromApi function ran with: ${parkTerm}`);
   const query = {
     parkCode: `${parkTerm}`,
-    limit: 5,
-    api_key: 'AIzaSyDE2RS2B27KuUp-G6TWpRFtLpySC36Zf3c',
+    // limit: 5,
+    api_key
   };
 
-  $.getJSON(NPS_ALERT_SEARCH_URL, query, callback)
-      .fail(function (jqXHR, error, errorThrown) {
-                console.log(jqXHR);
-                console.log(error);
-                console.log(errorThrown);
-  });
+  $.getJSON(`${NPS_SEARCH_URL}/alerts`, query, callback)
+    .fail(function (jqXHR, error, errorThrown) {
+      console.log(jqXHR);
+      console.log(error);
+      console.log(errorThrown);
+    });
 };
 
 
 // get campground information from API when user clicks lnk to get campground info
 // for selected park
 
-const NPS_PARK_SEARCH_URL = 'https://api.nps.gov/api/v1/campgrounds';
+// const NPS_PARK_SEARCH_URL = 'https://api.nps.gov/api/v1/campgrounds';
 
 function getParkDataFromApi(parkTerm, callback) {
   console.log(`getParkDataFromApi function ran with ${parkTerm}`);
   const query = {
     parkCode: `${parkTerm}`,
-    api_key: 'AIzaSyDE2RS2B27KuUp-G6TWpRFtLpySC36Zf3c',
+    api_key
   };
-  $.getJSON(NPS_PARK_SEARCH_URL, query, callback)
-      .fail(function (jqXHR, error, errorThrown) {
-                console.log(jqXHR);
-                console.log(error);
-                console.log(errorThrown);
-  });
+  $.getJSON(`${NPS_SEARCH_URL}/campgrounds`, query, callback)
+    .fail(function (jqXHR, error, errorThrown) {
+      console.log(jqXHR);
+      console.log(error);
+      console.log(errorThrown);
+    });
 };
 
 // render results of list of parks by selected state
@@ -69,13 +70,13 @@ function getParkDataFromApi(parkTerm, callback) {
 function renderResult(result) {
   console.log(`renderResult function ran`);
   $('.js-output')
-  .prop('hidden', false)
-  .html(result);
+    .prop('hidden', false)
+    .html(result);
   $('footer').removeClass('hidden');
 }
 
 // render results of alerts for selected park
-function renderAlertResult (alert) {
+function renderAlertResult(alert) {
   console.log(`renderAlertResult function ran`);
   $(`.alert-results[data-name="${queryPark}"]`)
     .prop('hidden', false)
@@ -84,8 +85,8 @@ function renderAlertResult (alert) {
 
 // render campground information for selected park
 function renderParkResult(result) {
-    console.log('renderParkResult function ran');
-    $(`.camp-results[data-name="${queryPark}"]`)
+  console.log('renderParkResult function ran');
+  $(`.camp-results[data-name="${queryPark}"]`)
     .prop('hidden', false)
     .html(result);
 }
@@ -98,13 +99,13 @@ function displayStateSearchData(item) {
   console.log("answer ", item);
   // variable that will contain the string with the results
   const itemStringArray = [];
-  
+
   // Iterate over a jQuery object, executing a function for each matched element.
   $.each(item.data, function (itemkey, itemvalue) {
     var mystring = `${itemvalue.fullName}`;
-     mystring = mystring.replace('&','and');
-     console.log(mystring);
-    let parkCode= itemvalue.parkCode;
+    mystring = mystring.replace('&', 'and');
+    console.log(mystring);
+    let parkCode = itemvalue.parkCode;
     itemStringArray.push(`
       <div class="park">
         <h1>${itemvalue.fullName}</h1>
@@ -133,9 +134,9 @@ function displayStateSearchData(item) {
           ${itemvalue.fullName}</a>
         </div>
       </div>`
-      );
+    );
   });
-    renderResult(itemStringArray);
+  renderResult(itemStringArray);
 };
 
 
@@ -143,18 +144,18 @@ function displayStateSearchData(item) {
 // as the html to populate alert information for selected park
 function displayAlertSearchData(result) {
   console.log("displayAlertSearchData function ran");
-  const alertStringArray =[];
-  if (result.data.length==0) {
+  const alertStringArray = [];
+  if (result.data.length == 0) {
     alertStringArray.push(`<div class="expanded-info"><p class="no-info">This park does not have any alerts at this time</p></div>`);
   } else {
-      for (let i=0;i<result.data.length; i++) {
-        alertStringArray.push(`<div class="expanded-info">
+    for (let i = 0; i < result.data.length; i++) {
+      alertStringArray.push(`<div class="expanded-info">
         <h3>${result.data[i].title}</h3>
         <h4>${result.data[i].category}</h4>
         <p>${result.data[i].description}</p>
        <a href="${result.data[i].url}" target="_blank">more information</a>
        </div>`);
-      };
+    };
   };
   console.log(alertStringArray);
   renderAlertResult(alertStringArray);
@@ -166,40 +167,40 @@ function displayAlertSearchData(result) {
 function displayParkSearchData(item) {
   console.log('displayParkSearchData function ran');
   console.log('park answer ', item);
-  const campgroundStringArray =[];
-  if (item.data.length==0) {
+  const campgroundStringArray = [];
+  if (item.data.length == 0) {
     campgroundStringArray.push(`<div class="expanded-info"><p class="no-info">This park does not have any campgrounds.</p></div>`);
   } else {
     console.log(`item.data is`, item.data);
 
-    for (let i=0; i<item.data.length; i++) {
+    for (let i = 0; i < item.data.length; i++) {
       console.log(item.data[i]);
     }
 
     $.each(item.data, function (itemkey, itemvalue) {
-        let code= itemvalue.parkCode;
-        let water = [];
-        let toilets=[];
-        let showers=[];
-        let resUrl;
+      let code = itemvalue.parkCode;
+      let water = [];
+      let toilets = [];
+      let showers = [];
+      let resUrl;
 
-        // create array for result for each amenity
-        for (let i=0; i<itemvalue.amenities.potableWater.length; i++) {
-            water.push(itemvalue.amenities.potableWater[i]);
-        };
-        console.log(`this is water`, water);
+      // create array for result for each amenity
+      for (let i = 0; i < itemvalue.amenities.potableWater.length; i++) {
+        water.push(itemvalue.amenities.potableWater[i]);
+      };
+      console.log(`this is water`, water);
 
-        for (let i=0; i<itemvalue.amenities.toilets.length; i++) {
-             toilets.push(itemvalue.amenities.toilets[i]);
-        };
-        console.log(`this is toilets`, toilets);
+      for (let i = 0; i < itemvalue.amenities.toilets.length; i++) {
+        toilets.push(itemvalue.amenities.toilets[i]);
+      };
+      console.log(`this is toilets`, toilets);
 
-        for (let i=0; i<itemvalue.amenities.showers.length; i++) {
-             showers.push(itemvalue.amenities.showers[i]);
-        };
-        console.log(`this is showers`, showers);
+      for (let i = 0; i < itemvalue.amenities.showers.length; i++) {
+        showers.push(itemvalue.amenities.showers[i]);
+      };
+      console.log(`this is showers`, showers);
 
-       campgroundStringArray.push(`
+      campgroundStringArray.push(`
        <h3>${itemvalue.name}</h3>
        <div class="expanded-info">
        <p>${itemvalue.description}</p>
@@ -213,7 +214,7 @@ function displayParkSearchData(item) {
        RV only sites: ${itemvalue.campsites.rvOnly}<br>
        Tent only sites: ${itemvalue.campsites.tentOnly}</p>
        </div>`);
-      });
+    });
   };
   console.log(campgroundStringArray);
   renderParkResult(campgroundStringArray);
@@ -221,10 +222,10 @@ function displayParkSearchData(item) {
 
 
 // when page is done loading, do the following:
-$(function() {
+$(function () {
 
   // hide landing page and show state options
-  $('button').click(function() {
+  $('button').click(function () {
     $('.welcome').hide();
     $('.content').removeClass('hidden');
   });
@@ -236,12 +237,12 @@ $(function() {
     console.log(`selections has been made with term ${queryStateVal}`);
     getStateDataFromApi(queryStateVal, displayStateSearchData);
 
-   });
+  });
 
-  
+
   // when user clicks on alert information link, call API for alert information,
   // and show toggle button for alerts
-  $('.js-output').on('click', '.park-alerts', function() {
+  $('.js-output').on('click', '.park-alerts', function () {
     event.preventDefault();
     queryPark = $(this).attr('data-name');
     console.log(`Alert link has been clicked with with term ${queryPark}`);
@@ -254,7 +255,7 @@ $(function() {
 
   // when toggle button is pressed in Alert information section, either hides or displays
   // div content without having to call API again.
-  $('.js-output').on('click', '.toggle-alerts', function(event) {
+  $('.js-output').on('click', '.toggle-alerts', function (event) {
     event.stopPropagation();
     console.log('toggle button on alerts has been pressed');
     // $(event.currentTarget).closest('.park-alerts').toggleClass('hidden');
@@ -263,9 +264,9 @@ $(function() {
     $(this).toggleClass('hidden');
   });
 
-// when user clicks on campground link, call API for campground information,
+  // when user clicks on campground link, call API for campground information,
   // and show toggle button for campgrounds
-  $('.js-output').on('click', '.camping', function() {
+  $('.js-output').on('click', '.camping', function () {
     event.preventDefault();
     queryPark = $(this).attr('data-name');
     console.log(`campground link has been clicked with with term ${queryPark}`);
@@ -277,7 +278,7 @@ $(function() {
 
   // when toggle button is pressed in campground section, either hides or displays
   // div content without having to call API again.
-  $('.js-output').on('click', '.toggle-camps', function(event) {
+  $('.js-output').on('click', '.toggle-camps', function (event) {
     event.stopPropagation();
     console.log('toggle button on campgrounds has been pressed');
     $(this).siblings('.camping').toggleClass('hidden');
