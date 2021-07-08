@@ -29,7 +29,6 @@ function getStateDataFromApi(stateTerm, callback) {
 // const NPS_ALERT_SEARCH_URL = 'https://developer.nps.gov/api/v1/alerts';
 
 function getAlertDataFromApi(parkTerm, callback) {
-  console.log(`getAlerDataFromApi function ran with: ${parkTerm}`);
   const query = {
     parkCode: `${parkTerm}`,
     // limit: 5,
@@ -51,7 +50,6 @@ function getAlertDataFromApi(parkTerm, callback) {
 // const NPS_PARK_SEARCH_URL = 'https://api.nps.gov/api/v1/campgrounds';
 
 function getParkDataFromApi(parkTerm, callback) {
-  console.log(`getParkDataFromApi function ran with ${parkTerm}`);
   const query = {
     parkCode: `${parkTerm}`,
     api_key
@@ -95,7 +93,7 @@ function displayStateSearchData(item) {
   const itemStringArray = [];
 
   // Iterate over a jQuery object, executing a function for each matched element.
-  $.each(item.data, function (itemkey, itemvalue) {
+  $.each(item.data, function (itemvalue) {
     var mystring = `${itemvalue.fullName}`;
     mystring = mystring.replace('&', 'and');
     let parkCode = itemvalue.parkCode;
@@ -166,6 +164,7 @@ function displayParkSearchData(item) {
       let water = [];
       let toilets = [];
       let showers = [];
+      let reservationUrl = itemvalue.reservationUrl;
 
       // create array for result for each amenity
       for (let i = 0; i < itemvalue.amenities.potableWater.length; i++) {
@@ -196,6 +195,9 @@ function displayParkSearchData(item) {
        Group sites: ${itemvalue.campsites.group}<br>
        RV only sites: ${itemvalue.campsites.rvOnly}<br>
        Tent only sites: ${itemvalue.campsites.tentOnly}</p>
+       <br>
+       <br>
+       <a href="${reservationUrl}">Make a reservation</a>
        </div>`);
     });
   };
