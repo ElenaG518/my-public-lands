@@ -51,7 +51,6 @@ function getAlertDataFromApi(parkTerm, callback) {
 
 function getParkDataFromApi(parkTerm, callback) {
   const query = {
-    parkCode: `${parkTerm}`,
     api_key
   };
   $.getJSON(`${NPS_SEARCH_URL}/campgrounds`, query, callback)
@@ -167,7 +166,7 @@ function displayParkSearchData(item) {
       let reservationUrl = itemvalue.reservationUrl;
 
       // create array for result for each amenity
-      for (let i = 0; i < itemvalue.amenities.potableWater.length; i++) {
+      for (let i = 0; i < itemvalue.amenities?.potableWater?.length; i++) {
         water.push(itemvalue.amenities.potableWater[i]);
       };
 
