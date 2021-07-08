@@ -166,9 +166,11 @@ function displayParkSearchData(item) {
       let reservationUrl = itemvalue.reservationUrl;
 
       // create array for result for each amenity
-      for (let i = 0; i < itemvalue.amenities?.potableWater?.length; i++) {
-        water.push(itemvalue.amenities.potableWater[i]);
-      };
+      if (itemvalue.amenities && itemvalue.amenities.potableWater) {
+        for (let i = 0; i < itemvalue.amenities.potableWater.length; i++) {
+          water.push(itemvalue.amenities.potableWater[i]);
+        };
+      }
 
 
       for (let i = 0; i < itemvalue.amenities.toilets.length; i++) {
